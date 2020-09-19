@@ -1,41 +1,76 @@
-" Vundle doesn´t work with plain vi
-set nocompatible
-filetype off
+" ************************ General settings *****************************
+  "         These are generally valid for both vim and neovim
+  "
+  " Modifications to behaviour
+    set autowrite           " Automatically :write before running commands
+    set mouse=a             " enable mouse for selection and resize windows
+    set termguicolors       " enable true colors
+    set laststatus=2        " always display the status line
+    set incsearch           " do incremental searches
+    set hlsearch            " highlight searches
+    set tabstop=2           " use spaces for tabs
+    set shiftwidth=2        " Number of spaces for each step of indentation
+    set shiftround          " Round indent to multiple of "shiftwidth"
+    set relativenumber      " Enable relative line numbers
+    set number              " Show the actual line number for current line
+    set showmatch           " show the matching part for any parentheses
+    set splitbelow
+    set splitright
+    set encoding=utf-8      " Standard file encoding
 
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
+    " set t_Co=256            " Enable 256 color mode
 
-" let Vundle manage Vundle (required)
-Plugin 'VundleVim/Vundle.vim'
+let python_highlight_all=1
 
-Plugin 'tpope/vim-fugitive'
-Plugin 'tpope/vim-fireplace'
-Plugin 'tpope/vim-dispatch'
-Plugin 'tpope/vim-salve'
-Plugin 'stephpy/vim-yaml'
-Plugin 'guns/vim-clojure-static'
-Plugin 'guns/vim-clojure-highlight'
-Plugin 'kien/rainbow_parentheses.vim'
-Plugin 'tmhedberg/SimpylFold'
-Plugin 'ycm-core/YouCompleteMe'
-" Python related plugins
-Plugin 'vim-scripts/indentpython.vim'
-Plugin 'vim-syntastic/syntastic'
-Plugin 'nvie/vim-flake8'
-Plugin 'jnurmine/Zenburn'
-
-" All plugins must be loaded before the next line
-call vundle#end()
-
-" Brief help
-" :PluginList       - lists configured plugins
-" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
-" :PluginSearch foo - searches for foo; append `!` to refresh local cache
-" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
+" Set some useful variables
 "
-" see :h vundle for more details or wiki for FAQ
-" Put your non-Plugin stuff after this line
+let $RTP=split(&runtimepath, ',')[0]
+let $RC="$HOME/.vim/vimrc"
+let $NRC="$HOME/.config/nvim/init.vim"
+
+set path=.,**
+
+" **************************** Vundle *********************************
+  " Vundle doesn´t work with plain vi
+  set nocompatible
+  filetype off
+
+  " set the runtime path to include Vundle and initialize
+  set rtp+=~/.vim/bundle/Vundle.vim
+  call vundle#begin()
+
+  " let Vundle manage Vundle (required)
+  Plugin 'VundleVim/Vundle.vim'
+
+  Plugin 'tpope/vim-fugitive'
+  Plugin 'tpope/vim-fireplace'
+  Plugin 'tpope/vim-dispatch'
+  Plugin 'tpope/vim-salve'
+  Plugin 'guns/vim-clojure-static'
+  Plugin 'guns/vim-clojure-highlight'
+  Plugin 'kien/rainbow_parentheses.vim'
+  Plugin 'tmhedberg/SimpylFold'
+  Plugin 'ycm-core/YouCompleteMe'
+  " Python related plugins
+  Plugin 'vim-scripts/indentpython.vim'
+  Plugin 'vim-syntastic/syntastic'
+  Plugin 'nvie/vim-flake8'
+  Plugin 'jnurmine/Zenburn'
+
+  " All plugins must be loaded before the next line
+  call vundle#end()
+
+  " Brief help
+  " :PluginList       - lists configured plugins
+  " :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
+  " :PluginSearch foo - searches for foo; append `!` to refresh local cache
+  " :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
+  "
+  " see :h vundle for more details or wiki for FAQ
+  " Put your non-Plugin stuff after this line
+  
+  filetype plugin indent on
+  syntax on
 
 " ************** load the plug package manager ***********
 if empty(glob('~/.vim/autoload/plug.vim'))
@@ -44,49 +79,8 @@ if empty(glob('~/.vim/autoload/plug.vim'))
   autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 
-" VIM native configuration
-" 
-let $RTP=split(&runtimepath, ',')[0]
-let $RC="$HOME/.vim/vimrc"
-let $NRC="$HOME/.config/nvim/init.vim"
-
-set path=.,**
-
-" set highlight for search
-set incsearch
-set hlsearch
-filetype plugin indent on
-syntax on
-
-" Use two spaces for tabs
-set tabstop=2
-
-" Enable relative line numbers
-set relativenumber
-set number
-
-" show the matching part for any parentheses
-set showmatch
-
-" Handle splits
-set splitbelow
-set splitright
-
-" Enable 256 color mode
-set t_Co=256
-
-set encoding=utf-8
-
-let python_highlight_all=1
-
 " Automatically load the Zenburn color scheme
 colors zenburn
-
-" Simplify movement between screen splits
-nnoremap <C-J> <C-W><C-J>
-nnoremap <C-K> <C-W><C-K>
-nnoremap <C-L> <C-W><C-L>
-nnoremap <C-H> <C-W><C-H>
 
 " Configure SimpylFold
 let g:SimpylFold_docstring_preview=1
@@ -94,6 +88,3 @@ let g:SimpylFold_docstring_preview=1
 " Enable folding
 set foldmethod=indent
 set foldlevel=99
-" Enable folding with spacebar
-nnoremap <space> za
-
