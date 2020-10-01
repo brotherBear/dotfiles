@@ -34,8 +34,6 @@ endif
     xmap <space> ,
 " }}}
 
-let python_highlight_all=1
-
 " Set some useful variables
 "
 let $RTP=split(&runtimepath, ',')[0]
@@ -58,6 +56,7 @@ syntax on
   call plug#begin('~/.local/share/nvim/plugged')
     Plug 'airblade/vim-gitgutter'
     Plug 'chriskempson/base16-vim'
+    " Plug 'christoomey/vim-tmux-navigator'
     Plug 'deoplete-plugins/deoplete-jedi'
     Plug 'davidhalter/jedi-vim'
     Plug 'guns/vim-clojure-static'
@@ -92,17 +91,19 @@ syntax on
 " }}}
 
 " Automatically load the Zenburn color scheme
-colors zenburn
+  colors zenburn
 
 " Configure SimpylFold
-let g:SimpylFold_docstring_preview=1
+  let g:SimpylFold_docstring_preview=1
 
 " Enable folding
-set foldmethod=indent
-set foldlevel=99
+  set foldmethod=indent
+  set foldlevel=99
 
 " *************** Python3 ************
-let g:python3_host_prog='~/.venv/nvim/bin/python'
+  let g:python3_host_prog='~/.venv/nvim/bin/python'
+  let python_highlight_all=1
+
 
 " ******************** Lightline ***************************************
   let g:lightline = {
@@ -151,5 +152,11 @@ let g:python3_host_prog='~/.venv/nvim/bin/python'
 
   " Snippets
     nnoremap <leader>note :-1read $HOME/.vim/snippets/.skeleton.notes.md<CR>
+
+  " formatting
+    nnoremap <leader>f Neoformat
+
+  " Vimdiff
+    nnoremap <C-9> <C-]>
 
 " }}}
