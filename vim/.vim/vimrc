@@ -1,4 +1,4 @@
-" ************************ General settings *****************************
+" {{{************************ General settings *****************************
   "         These are generally valid for both vim and neovim
   "
   " Modifications to behaviour
@@ -17,8 +17,22 @@
     set splitbelow
     set splitright
     set encoding=utf-8      " Standard file encoding
+" }}}
 
-    " set t_Co=256            " Enable 256 color mode
+if !has('gui_running')
+  " Enable 256 color mode (for lightline)
+  set t_Co=256
+endif
+
+" {{{************************ Leader key mapping ***************************
+  " I am using a Mac with norwegian keyboard, so I need the leader key to be
+  " more sensible.
+    let g:mapleader=","
+  
+  " alias for leader key
+    nmap <space> ,
+    xmap <space> ,
+" }}}
 
 let python_highlight_all=1
 
@@ -30,54 +44,52 @@ let $NRC="$HOME/.config/nvim/init.vim"
 
 set path=.,**
 
-" **************************** Vundle *********************************
-  " Vundle doesn´t work with plain vi
-  set nocompatible
-  filetype off
+filetype plugin indent on
+syntax on
 
-  " set the runtime path to include Vundle and initialize
-  set rtp+=~/.vim/bundle/Vundle.vim
-  call vundle#begin()
+" {{{************************ Plug package manager *************************
+  if empty(glob('~/.vim/autoload/plug.vim'))
+    silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+      \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+    autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+  endif
 
-  " let Vundle manage Vundle (required)
-  Plugin 'VundleVim/Vundle.vim'
-
-  Plugin 'tpope/vim-fugitive'
-  Plugin 'tpope/vim-fireplace'
-  Plugin 'tpope/vim-dispatch'
-  Plugin 'tpope/vim-salve'
-  Plugin 'guns/vim-clojure-static'
-  Plugin 'guns/vim-clojure-highlight'
-  Plugin 'kien/rainbow_parentheses.vim'
-  Plugin 'tmhedberg/SimpylFold'
-  Plugin 'ycm-core/YouCompleteMe'
-  " Python related plugins
-  Plugin 'vim-scripts/indentpython.vim'
-  Plugin 'vim-syntastic/syntastic'
-  Plugin 'nvie/vim-flake8'
-  Plugin 'jnurmine/Zenburn'
-
-  " All plugins must be loaded before the next line
-  call vundle#end()
-
-  " Brief help
-  " :PluginList       - lists configured plugins
-  " :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
-  " :PluginSearch foo - searches for foo; append `!` to refresh local cache
-  " :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
-  "
-  " see :h vundle for more details or wiki for FAQ
-  " Put your non-Plugin stuff after this line
-  
-  filetype plugin indent on
-  syntax on
-
-" ************** load the plug package manager ***********
-if empty(glob('~/.vim/autoload/plug.vim'))
-  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
-    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
-endif
+  " *********** Setup vim-plug package manager here *******************{{{
+  call plug#begin('~/.local/share/nvim/plugged')
+    Plug 'airblade/vim-gitgutter'
+    Plug 'chriskempson/base16-vim'
+    Plug 'deoplete-plugins/deoplete-jedi'
+    Plug 'davidhalter/jedi-vim'
+    Plug 'guns/vim-clojure-static'
+    Plug 'guns/vim-clojure-highlight'
+    Plug 'itchyny/lightline.vim'
+    Plug 'jnurmine/Zenburn'
+    Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all'}
+    Plug 'junegunn/fzf.vim'
+    Plug 'junegunn/vim-plug'
+    Plug 'kassio/neoterm'
+    Plug 'kien/rainbow_parentheses.vim'
+    Plug 'nvie/vim-flake8'
+    Plug 'plasticboy/vim-markdown'
+    Plug 'sbdchd/neoformat'
+    Plug 'scrooloose/nerdtree'
+    Plug 'scrooloose/nerdcommenter'
+    Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+    Plug 'Shougo/deoplete-clangx'
+    Plug 'stephpy/vim-yaml'
+    Plug 'tmhedberg/SimpylFold'
+    Plug 'tpope/vim-fireplace'
+    Plug 'tpope/vim-dispatch'
+    Plug 'tpope/vim-salve'
+    Plug 'tpope/vim-sleuth'
+    Plug 'tpope/vim-surround'
+    Plug 'tpope/vim-fugitive'
+    Plug 'vim-scripts/indentpython.vim'
+    Plug 'vim-syntastic/syntastic'
+    Plug 'w0rp/ale'
+    Plug 'ycm-core/YouCompleteMe'
+  call plug#end()
+" }}}
 
 " Automatically load the Zenburn color scheme
 colors zenburn
@@ -88,3 +100,56 @@ let g:SimpylFold_docstring_preview=1
 " Enable folding
 set foldmethod=indent
 set foldlevel=99
+
+" *************** Python3 ************
+let g:python3_host_prog='~/.venv/nvim/bin/python'
+
+" ******************** Lightline ***************************************
+  let g:lightline = {
+        \ 'active': {
+        \     'left': [['mode', 'paste'],
+        \              ['gitbranc', 'readonly', 'filename', 'modified']]
+        \ },
+        \ 'component_function': {
+        \   'gitbranch': 'FugitiveHead'
+        \ },
+        \ }
+
+" ******************** ALE ****************************
+  let g:ale_linters = { 'c': ['gcc'], 'cpp': ['g++'], 'python': ['flake8']}
+  let g:ale_python_flake8_options = '--ignore='
+  let g:ale_sign_error='ER'
+  let g:ale_sign_warning='WR'
+
+" *************** Deoplete **************
+  call deoplete#enable()
+  let g:deoplete#enable_at_startup=1
+  let g:deoplete#omni_patterns = {}
+
+" **************** Jedi *****************
+  " disable autocompletion since we're using deoplete for that
+  let g:jedi#completions_enabled=0
+  " open the go-to function in split, not another buffer
+  let g:jedi#use_splits_not_buffers="right"
+
+" {{{ ************* Key Mappings ******************************
+  " Simplify movement between screen splits
+    nnoremap <C-J> <C-W><C-J>
+    nnoremap <C-K> <C-W><C-K>
+    nnoremap <C-L> <C-W><C-L>
+    nnoremap <C-H> <C-W><C-H>
+
+  " Enable folding with spacebar
+    nnoremap <space> za
+
+  " replace word under cursor, globally, with confirmation
+    nnoremap <Leader>k :%s/\<<C-r><C-w>\>//gc<Left><Left><Left>
+    vnoremap <Leader>k y :%s/<C-r>"//gc<Left><Left><Left>
+
+  " something something terminal
+    tnoremap <Esc> <C-\><C-n>
+
+  " Snippets
+    nnoremap <leader>note :-1read $HOME/.vim/snippets/.skeleton.notes.md<CR>
+
+" }}}
