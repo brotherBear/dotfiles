@@ -8,13 +8,14 @@ git submodule update
 base=(
 	bash
 	neovim
+	tmux
+	vim
 )
 
 # Directories available to local user (no root)
 useronly=(
 	bin
 	git
-	vim
 	zsh
 )
 
