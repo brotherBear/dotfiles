@@ -1,0 +1,11 @@
+# This is Git's per-user configuration file.
+[user]
+# Please adapt and uncomment the following lines:
+	name = Bjørn Asle Taranger
+	email = bjorn.taranger@gmail.com
+[gui]
+	encoding = utf-8
+[core]
+	editor = vim
+	excludesfile = /Users/bjorn/.gitignore_global
+	autocrlf = input
