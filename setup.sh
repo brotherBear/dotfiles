@@ -7,10 +7,12 @@ git submodule update
 # Declare what directories should be available to all users
 base=(
 	bash
+	neovim
 )
 
 # Directories available to local user (no root)
 useronly=(
+	bin
 	git
 	vim
 	zsh
