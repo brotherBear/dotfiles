@@ -1,0 +1,32 @@
+
+# Git related aliases
+become() { git fetch --all && git reset --hard origin/$1 ; }
+
+
+# Other useful stuff
+# list readable files in current directory
+alias rable='ls -AFtrd *(R)'
+
+# list unreadable files in current directory
+alias nrable='ls -AFtrd *(^R)'
+
+# shortcut to the learning journal for vim training
+alias vj='$EDITOR ~/journals/Vim.md'
+alias bj='$EDITOR ~/journals/Bass.md'
+
+
+TMUX_CONFIG="~/.config/tmux/tmux.conf"
+# TMUX related aliases
+alias \
+  tn="tmux -u -f $TMUX_CONFIG new" \
+	ta="tmux -u -f $TMUX_CONFIG attach" \
+	tt="$EDITOR $TMUX_CONFIG" \
+
+
+# Python related aliases:
+#
+# Start the pydoc server (and open a browser)
+alias pdoc="python -m pydoc -b"
+
+# Apply the local virtual environment
+alias ven="source ./venv/bin/activate"
