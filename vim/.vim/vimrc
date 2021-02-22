@@ -57,7 +57,7 @@ syntax on
     Plug 'airblade/vim-gitgutter'
     Plug 'chriskempson/base16-vim'
     " Plug 'christoomey/vim-tmux-navigator'
-    Plug 'deoplete-plugins/deoplete-jedi'
+    " Plug 'deoplete-plugins/deoplete-jedi'
     Plug 'davidhalter/jedi-vim'
     Plug 'guns/vim-clojure-static'
     Plug 'guns/vim-clojure-highlight'
@@ -73,8 +73,8 @@ syntax on
     Plug 'sbdchd/neoformat'
     Plug 'scrooloose/nerdtree'
     Plug 'scrooloose/nerdcommenter'
-    Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-    Plug 'Shougo/deoplete-clangx'
+    " Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+    " Plug 'Shougo/deoplete-clangx'
     Plug 'stephpy/vim-yaml'
     Plug 'tmhedberg/SimpylFold'
     Plug 'tpope/vim-fireplace'
@@ -123,9 +123,9 @@ syntax on
   let g:ale_sign_warning='WR'
 
 " *************** Deoplete **************
-  call deoplete#enable()
-  let g:deoplete#enable_at_startup=1
-  let g:deoplete#omni_patterns = {}
+  " call deoplete#enable()
+  " let g:deoplete#enable_at_startup=1
+  " let g:deoplete#omni_patterns = {}
 
 " **************** Jedi *****************
   " disable autocompletion since we're using deoplete for that
