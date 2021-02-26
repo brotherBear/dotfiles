@@ -19,6 +19,7 @@ alias dpl="docker exec -it prov bash -c \"less /var/log/tomcat/prov.log\""
 alias cdprov="cd /Users/bjorn/Dev/altibox/prov/prov-web/prov-app"
 makep() { cdprov && (make DOCKER_PORT_MAPS="-p 11080:7999 -p 8180:8080 -P" ${@:1} || true) && cd - &>/dev/null ; }
 mcip() { cdprov && (mvn clean install && makep env || true) && cd - &>/dev/null ; }
+mip() { cdprov && (mvn install && makep env || true) && cd - &>/dev/null ; }
 
 # docker transit
 alias dt="d transit"
@@ -26,6 +27,7 @@ alias dtl="docker exec -it transit bash -c \"less /var/log/wildfly/server.log\""
 alias cdtransit="cd /Users/bjorn/Dev/altibox/transit"
 maket() { cdtransit && (make DOCKER_PORT_MAPS="-p 11082:7999 -p 8182:8080 -P" ${@:1} || true) && cd - &>/dev/null ; }
 mcit() { cdtransit && (mvn clean install && maket env || true) && cd - &>/dev/null ; }
+mit() { cdtransit && (mvn install && maket env || true) && cd - &>/dev/null ; }
 
 # docker netint
 alias dn="d netint2"
