@@ -57,7 +57,7 @@ syntax on
     Plug 'airblade/vim-gitgutter'
     Plug 'chriskempson/base16-vim'
     " Plug 'christoomey/vim-tmux-navigator'
-    " Plug 'deoplete-plugins/deoplete-jedi'
+    Plug 'deoplete-plugins/deoplete-jedi'
     Plug 'davidhalter/jedi-vim'
     Plug 'guns/vim-clojure-static'
     Plug 'guns/vim-clojure-highlight'
@@ -73,7 +73,7 @@ syntax on
     Plug 'sbdchd/neoformat'
     Plug 'scrooloose/nerdtree'
     Plug 'scrooloose/nerdcommenter'
-    " Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+    Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
     " Plug 'Shougo/deoplete-clangx'
     Plug 'stephpy/vim-yaml'
     Plug 'tmhedberg/SimpylFold'
@@ -86,7 +86,8 @@ syntax on
     Plug 'vim-scripts/indentpython.vim'
     Plug 'vim-syntastic/syntastic'
     Plug 'w0rp/ale'
-    Plug 'ycm-core/YouCompleteMe'
+    " Plug 'ycm-core/YouCompleteMe'
+    Plug 'Yggdroot/indentLine'
   call plug#end()
 " }}}
 
@@ -103,6 +104,10 @@ syntax on
 " *************** Python3 ************
   let g:python3_host_prog='~/.venv/nvim/bin/python'
   let python_highlight_all=1
+
+" ***************** IndentLine **************
+"
+  let g:indentLine_char_list = ['|', '¦', '┆', '┊']
 
 
 " ******************** Lightline ***************************************
@@ -158,5 +163,11 @@ syntax on
 
   " Vimdiff
     nnoremap <C-9> <C-]>
+
+" }}}
+
+" {{{ *********************** Autocommands ************************
+
+  autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
 
 " }}}
