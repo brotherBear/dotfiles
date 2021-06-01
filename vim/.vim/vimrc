@@ -10,6 +10,7 @@
     set hlsearch            " highlight searches
     set tabstop=2           " use spaces for tabs
     set shiftwidth=2        " Number of spaces for each step of indentation
+    set conceallevel=0      " Make sure we don't hide anything
     set shiftround          " Round indent to multiple of "shiftwidth"
     set relativenumber      " Enable relative line numbers
     set number              " Show the actual line number for current line
@@ -126,6 +127,8 @@ syntax on
   let g:ale_python_flake8_options = '--ignore='
   let g:ale_sign_error='ER'
   let g:ale_sign_warning='WR'
+  let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
+
 
 " *************** Deoplete **************
   " call deoplete#enable()
