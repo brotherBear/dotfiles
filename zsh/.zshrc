@@ -146,6 +146,8 @@ fi
 # Exports recommended by Brew
 export PKG_CONFIG_PATH="/usr/local/opt/ruby/lib/pkgconfig"
 
+export GROOVY_HOME=/usr/local/opt/groovy/libexec
+
 # For compilers to find sqlite you may need to set:
 export LDFLAGS="-L/usr/local/opt/sqlite/lib"
 export CPPFLAGS="-I/usr/local/opt/sqlite/include"
@@ -173,3 +175,4 @@ export PATH="/usr/local/opt/python@3.8/bin:$PATH"
 export PATH="/usr/local/sbin:$PATH"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+fortune

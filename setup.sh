@@ -17,6 +17,7 @@ useronly=(
 	bin
 	git
 	zsh
+	yamllint
 )
 
 # Stow the directory at $2 in the location $1
