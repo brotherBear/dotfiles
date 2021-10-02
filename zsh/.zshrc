@@ -143,6 +143,7 @@ else
   # export EDITOR='mvim'
 fi
 
+
 # Exports recommended by Brew
 export PKG_CONFIG_PATH="/usr/local/opt/ruby/lib/pkgconfig"
 
@@ -175,6 +176,7 @@ export PATH="/usr/local/opt/python@3.8/bin:$PATH"
 export PATH="/usr/local/sbin:$PATH"
 export PATH="/opt/homebrew/sbin:$PATH"
 export PATH="/opt/homebrew/bin:$PATH"
+export PATH="$HOME/bin:$PATH"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 fortune
