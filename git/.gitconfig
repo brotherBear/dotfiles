@@ -9,3 +9,5 @@
 	editor = vim
 	excludesfile = /Users/bjorn/.gitignore_global
 	autocrlf = input
+[pull]
+	rebase = false
