@@ -70,6 +70,7 @@ syntax on
     Plug 'kassio/neoterm'
     Plug 'kien/rainbow_parentheses.vim'
     Plug 'nvie/vim-flake8'
+    Plug 'psf/black'
     Plug 'plasticboy/vim-markdown'
     Plug 'sbdchd/neoformat'
     Plug 'scrooloose/nerdtree'
@@ -103,7 +104,7 @@ syntax on
   set foldlevel=99
 
 " *************** Python3 ************
-  let g:python3_host_prog='~/.venv/nvim/bin/python'
+  let g:python3_host_prog='/opt/homebrew/bin/python3'
   let python_highlight_all=1
 
 " ***************** IndentLine **************
@@ -128,6 +129,8 @@ syntax on
   let g:ale_sign_error='ER'
   let g:ale_sign_warning='WR'
   let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
+  let g:ale_fixers = {}
+  let g:ale_fixers.python = ['black']
 
 
 " *************** Deoplete **************
@@ -172,5 +175,6 @@ syntax on
 " {{{ *********************** Autocommands ************************
 
   autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
+  autocmd BufWritePre *.py execute ':Black'
 
 " }}}
