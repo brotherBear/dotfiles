@@ -10,6 +10,7 @@ base=(
 	neovim
 	tmux
 	vim
+	flake8
 )
 
 # Directories available to local user (no root)
