@@ -3,45 +3,8 @@
 
 # Configuration for Altibox
 #
-export PUPPET_MODULES=/Users/bjorn/Dev/altibox/puppet/modules
 
-# docker misc
-d() { docker exec -it $1 bash ; }
-d-clean() {
-  docker volume ls -qf dangling=true | xargs docker volume rm
-  docker images -f dangling=true -q | xargs -n1 docker rmi
-  docker images | grep "<none>" | awk '{print $3}' | xargs -n1 docker rmi > /dev/null 2>&1
-}
-
-# docker prov
-alias dp="d prov"
-alias dpl="docker exec -it prov bash -c \"less /var/log/tomcat/prov.log\""
-alias cdprov="cd /Users/bjorn/Dev/altibox/prov/prov-web/prov-app"
-makep() { cdprov && (make DOCKER_PORT_MAPS="-p 11080:7999 -p 8180:8080 -P" ${@:1} || true) && cd - &>/dev/null ; }
-mcip() { cdprov && (mvn clean install && makep env || true) && cd - &>/dev/null ; }
-mip() { cdprov && (mvn install && makep env || true) && cd - &>/dev/null ; }
-
-# docker transit
-alias dt="d transit"
-alias dtl="docker exec -it transit bash -c \"less /var/log/wildfly/server.log\""
-alias cdtransit="cd /Users/bjorn/Dev/altibox/transit"
-maket() { cdtransit && (make DOCKER_PORT_MAPS="-p 11082:7999 -p 8182:8080 -P" ${@:1} || true) && cd - &>/dev/null ; }
-mcit() { cdtransit && (mvn clean install && maket env || true) && cd - &>/dev/null ; }
-mit() { cdtransit && (mvn install && maket env || true) && cd - &>/dev/null ; }
-
-# docker netint
-alias dn="d netint2"
-alias dnl="docker exec -it netint2 bash -c \"less /var/log/netint/netint.log\""
-alias cdnetint="cd /Users/bjorn/Dev/altibox/netint2"
-maken() { cdnetint && (make DOCKER_PORT_MAPS="-p 11084:7999 -p 8184:8080 -P" ${@:1} || true) && cd - &>/dev/null ; }
-mcin() { cdnetint && (mvn clean install && maken env || true) && cd - &>/dev/null ; }
-
-# docker mobileprov
-alias dmp="d mobileprov"
-alias dmpl="docker exec -it mobileprov bash -c \"less /var/log/tomcat/mobileprov.log\""
-alias cdmobileprov="cd /Users/bjorn/Dev/altibox/prov/prov-web/mobile-app"
-makemp() { cdmobileprov && (make DOCKER_PORT_MAPS="-p 11081:7999 -p 8181:8080 -P" ${@:1} || true) && cd - &>/dev/null ; }
-mcimp() { cdmobileprov && (mvn clean install && makemp env || true) && cd - &>/dev/null ; }
+[ -f ~/.altibox ] && source ~/.altibox
 
 # END configuration for Altibox
 
@@ -64,13 +27,18 @@ export ZSH="/Users/bjorn/.oh-my-zsh"
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="agnoster"
+ZSH_THEME="random"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
 # a theme from this variable instead of looking in ~/.oh-my-zsh/themes/
 # If set to an empty array, this variable will have no effect.
-# ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
+ZSH_THEME_RANDOM_CANDIDATES=(
+  "afowler"
+  "cloud"
+  "mortalscumbag"
+  "essembeh"
+  )
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -83,7 +51,7 @@ ZSH_THEME="agnoster"
 # DISABLE_AUTO_UPDATE="true"
 
 # Uncomment the following line to automatically update without prompting.
-# DISABLE_UPDATE_PROMPT="true"
+DISABLE_UPDATE_PROMPT="true"
 
 # Uncomment the following line to change how often to auto-update (in days).
 export UPDATE_ZSH_DAYS=13
@@ -101,7 +69,7 @@ export UPDATE_ZSH_DAYS=13
 # ENABLE_CORRECTION="true"
 
 # Uncomment the following line to display red dots whilst waiting for completion.
-# COMPLETION_WAITING_DOTS="true"
+COMPLETION_WAITING_DOTS="true"
 
 # Uncomment the following line if you want to disable marking untracked files
 # under VCS as dirty. This makes repository status check for large repositories
@@ -124,7 +92,17 @@ HIST_STAMPS="yyyy-mm-dd"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(z zsh-autosuggestions git)
+plugins=(
+  brew
+  colorize
+  git
+  jira
+  httpie
+  osx
+  tmux
+  z
+  zsh-autosuggestions
+)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -161,19 +139,16 @@ export CPPFLAGS="-I/usr/local/opt/sqlite/include"
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.
 #
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-alias ohmyzsh="mate ~/.oh-my-zsh"
-alias cdmeta="cd /Volumes/Lexar/repos/metasploitable3"
+alias ohmyzsh="vim ~/.oh-my-zsh"
 alias vim='nvim'
+alias zshconfig="vim ~/.zshrc"
 
 source ~/.aliases
 
 # Add to PATH
-export PATH="/usr/local/opt/sqlite/bin:$PATH"
-export PATH="/usr/local/opt/qt/bin:$PATH"
-export PATH="/usr/local/opt/python@3.8/bin:$PATH"
-export PATH="/usr/local/sbin:$PATH"
+# export PATH="/usr/local/opt/sqlite/bin:$PATH"
+# export PATH="/usr/local/opt/qt/bin:$PATH"
+# export PATH="/usr/local/sbin:$PATH"
 export PATH="/opt/homebrew/sbin:$PATH"
 export PATH="/opt/homebrew/bin:$PATH"
 export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"

@@ -1,3 +1,9 @@
+# shortcuts
+#
+alias cdpycpe="cd ~/Dev/altibox/pycpe"
+alias cdfile-central="cd ~/Dev/altibox/file_api"
+alias cdclient="cd ~/Dev/altibox/cpe-release-client"
+alias cdaltibox="cd ~/Dev/altibox"
 
 # Git related aliases
 become() { git fetch --all && git reset --hard origin/$1 ; }
@@ -11,8 +17,8 @@ alias rable='ls -AFtrd *(R)'
 alias nrable='ls -AFtrd *(^R)'
 
 # shortcut to the learning journal for vim training
-alias vj='$EDITOR ~/journals/Vim.md'
-alias bj='$EDITOR ~/journals/Bass.md'
+alias vj='$EDITOR ~/journals/Learning/Vim.md'
+alias bj='$EDITOR ~/journals/Music/Bass.md'
 
 
 TMUX_CONFIG="~/.config/tmux/tmux.conf"
