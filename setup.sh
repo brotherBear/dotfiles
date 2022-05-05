@@ -11,6 +11,7 @@ base=(
 	tmux
 	vim
 	flake8
+	pip
 )
 
 # Directories available to local user (no root)
@@ -28,7 +29,7 @@ stowit() {
 	# -v verbose
 	# -R recursive, replace old links
 	# -t target
-	stow -v -R -t ${usr} ${app}
+	stow -v -R --ignore='/Volumes/Google.*' -t ${usr} ${app}
 }
 
 echo ""
