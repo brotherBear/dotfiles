@@ -11,14 +11,11 @@
 
 ######################
 # java configuration
-export JAVA_8='/Library/Java/JavaVirtualMachines/adoptopenjdk-8.jdk/Contents/Home'
-export JAVA_11='/Library/Java/JavaVirtualMachines/adoptopenjdk-11.jdk/Contents/Home'
-export JAVA_14='/Library/Java/JavaVirtualMachines/adoptopenjdk-14.jdk/Contents/Home'
+export JAVA_HOME='/opt/homebrew/opt/openjdk'
 
-alias j8='export JAVA_HOME=$JAVA_8;export PS1="J8 $PS1"'
-alias j11='export JAVA_HOME=$JAVA_11;export PS1="J11 $PS1"'
-alias j14='export JAVA_HOME=$JAVA_14;export PS1="J14 $PS1"'
-j8
+######################
+# dotnet core configuration
+export DOTNET_ROOT="/opt/homebrew/opt/dotnet/libexec"
 
 # Path to your oh-my-zsh installation.
 export ZSH="/Users/bjorn/.oh-my-zsh"
@@ -98,7 +95,8 @@ plugins=(
   git
   jira
   httpie
-  osx
+  macos
+  rust
   tmux
   z
   zsh-autosuggestions
@@ -125,7 +123,7 @@ fi
 # Exports recommended by Brew
 export PKG_CONFIG_PATH="/usr/local/opt/ruby/lib/pkgconfig"
 
-export GROOVY_HOME=/usr/local/opt/groovy/libexec
+export GROOVY_HOME=/opt/homebrew/opt/groovy/libexec
 
 # For compilers to find sqlite you may need to set:
 export LDFLAGS="-L/usr/local/opt/sqlite/lib"
@@ -153,6 +151,11 @@ export PATH="/opt/homebrew/sbin:$PATH"
 export PATH="/opt/homebrew/bin:$PATH"
 export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"
 export PATH="$HOME/bin:$PATH"
+
+# Add Pyenv to handle python versions
+export PYENV_ROOT="$HOME/.pyenv"
+command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 fortune
