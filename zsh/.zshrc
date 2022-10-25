@@ -8,6 +8,10 @@
 
 # END configuration for Altibox
 
+# Load the flus-dns script
+#
+[ -f ~/bin/flush-dns.sh ] && source ~/bin/flush-dns.sh
+
 
 ######################
 # java configuration
@@ -34,7 +38,6 @@ ZSH_THEME_RANDOM_CANDIDATES=(
   "afowler"
   "cloud"
   "mortalscumbag"
-  "essembeh"
   )
 
 # Uncomment the following line to use case-sensitive completion.
@@ -55,12 +58,6 @@ export UPDATE_ZSH_DAYS=13
 
 # Uncomment the following line if pasting URLs and other text is messed up.
 # DISABLE_MAGIC_FUNCTIONS=true
-
-# Uncomment the following line to disable colors in ls.
-# DISABLE_LS_COLORS="true"
-
-# Uncomment the following line to disable auto-setting terminal title.
-# DISABLE_AUTO_TITLE="true"
 
 # Uncomment the following line to enable command auto-correction.
 # ENABLE_CORRECTION="true"
@@ -95,7 +92,9 @@ plugins=(
   git
   jira
   httpie
+  lpass
   macos
+  poetry
   rust
   tmux
   z
@@ -143,19 +142,18 @@ alias zshconfig="vim ~/.zshrc"
 
 source ~/.aliases
 
-# Add to PATH
+## Add to PATH
 # export PATH="/usr/local/opt/sqlite/bin:$PATH"
 # export PATH="/usr/local/opt/qt/bin:$PATH"
 # export PATH="/usr/local/sbin:$PATH"
+export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"
+export PATH="/opt/homebrew/opt/ruby/bin:$PATH"
 export PATH="/opt/homebrew/sbin:$PATH"
 export PATH="/opt/homebrew/bin:$PATH"
-export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"
-export PATH="$HOME/bin:$PATH"
+export PATH="$PATH:$HOME/bin"
 
-# Add Pyenv to handle python versions
-export PYENV_ROOT="$HOME/.pyenv"
-command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init -)"
+[ -f /opt/homebrew/etc/profile.d/autojump.sh ] && . /opt/homebrew/etc/profile.d/autojump.sh
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 fortune
+

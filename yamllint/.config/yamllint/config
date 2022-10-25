@@ -1,4 +1,4 @@
 extends: relaxed
 
 rules:
-	line-length: disable
+  line-length: disable

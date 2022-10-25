@@ -1,8 +1,0 @@
-#!/bin/zsh
-
-# If you past stuff directly from some terminal output, youget
-# -bash: $: command not found
-
-echo 'Quit pasting stuff directly from the internet!'
-"$@"
-

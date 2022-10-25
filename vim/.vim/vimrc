@@ -43,6 +43,12 @@ let $NRC="$HOME/.config/nvim/init.vim"
 
 set path=.,**
 
+" {{{************************** Configure polyglot *************************
+  " How to disable features in polyglot
+  " let g:polyglot_disabled = ['markdown']
+" }}}
+
+
 filetype plugin indent on
 syntax on
 
@@ -64,7 +70,8 @@ syntax on
     Plug 'guns/vim-clojure-highlight'
     Plug 'itchyny/lightline.vim'
     Plug 'jnurmine/Zenburn'
-    Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all'}
+    " Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all'}
+    Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
     Plug 'junegunn/fzf.vim'
     Plug 'junegunn/vim-plug'
     Plug 'kassio/neoterm'
@@ -75,6 +82,7 @@ syntax on
     Plug 'sbdchd/neoformat'
     Plug 'scrooloose/nerdtree'
     Plug 'scrooloose/nerdcommenter'
+    Plug 'sheerun/vim-polyglot'
     Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
     " Plug 'Shougo/deoplete-clangx'
     Plug 'stephpy/vim-yaml'
@@ -82,13 +90,13 @@ syntax on
     Plug 'tpope/vim-fireplace'
     Plug 'tpope/vim-dispatch'
     Plug 'tpope/vim-salve'
-    Plug 'tpope/vim-sleuth'
+    " Plug 'tpope/vim-sleuth'
     Plug 'tpope/vim-surround'
     Plug 'tpope/vim-fugitive'
     Plug 'vim-scripts/indentpython.vim'
     Plug 'vim-syntastic/syntastic'
     Plug 'w0rp/ale'
-    " Plug 'ycm-core/YouCompleteMe'
+    Plug 'ycm-core/YouCompleteMe'
     Plug 'Yggdroot/indentLine'
   call plug#end()
 " }}}
@@ -104,7 +112,7 @@ syntax on
   set foldlevel=99
 
 " *************** Python3 ************
-  let g:python3_host_prog='/opt/homebrew/bin/python3'
+  let g:python3_host_prog='~/vimvenv/bin/python3'
   let python_highlight_all=1
 
 " ***************** IndentLine **************
@@ -175,7 +183,9 @@ syntax on
 " {{{ *********************** Autocommands ************************
 
   autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
+  autocmd FileType markdown setlocal spell
   autocmd BufWritePre *.py execute ':Black'
+  autocmd BufRead,BufNewFile *.py,*.pyw,*.c,*.h match BadWhitespace /\s\+$/
   autocmd FileType python map <buffer> <F3> :call flake8#Flake8()<CR>
 
 " }}}

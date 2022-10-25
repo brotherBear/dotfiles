@@ -1,0 +1,60 @@
+# Configuration for alacritty (minimalist) ??
+#
+
+env:
+  # This value is used to set the $TERM environment variable for each instance of alacritty
+  #
+  TERM: xterm-256color
+
+window:
+  # Spread additional padding evenly around the terminal content
+  padding:
+    x: 10
+    y: 10
+      # Do not remove buttons
+  decorations: full
+
+      # Open in fullscreen
+  startup_mode: SimpleFullscreen
+
+      # Dimensions if not SimpleFullscreen
+  dimensions:
+    columns: 180
+    lines: 58
+
+  background_opacity: 0.92
+
+  cursor:
+    # Block Underline or Beam
+    style: Underline
+
+font:
+  normal:
+    family: Source Code Pro for Powerline
+    size: 17
+
+      # Better font rendering for mac
+    use_thin_strokes: true
+
+selection:
+  # This string contains all characters that are used as separators for "semantic words" in Alacritty
+  semantic_escape_chars: ",`|:\"' ()[]{}<>\t"
+
+save_to_clipboard: true
+
+# Live config reload (changes require restart)
+live_config_reload: true
+
+      # Login shell with arguments
+shell:
+  program: /bin/zsh
+  args:
+  - --login
+
+
+# Startup directory
+# working_directory: None
+
+import:
+- ~/.config/alacritty/keybinding.yml
+- ~/.config/alacritty/colors.yml
