@@ -1,4 +1,39 @@
 # Configuration for Alacritty, the GPU enhanced terminal emulator.
+#
+# This file contains only mouse bindings and key bindings
+
+# Mouse bindings
+#
+# Mouse bindings are specified as a list of objects, much like the key
+# bindings further below.
+#
+# To trigger mouse bindings when an application running within Alacritty
+# captures the mouse, the `Shift` modifier is automatically added as a
+# requirement.
+#
+# Each mouse binding will specify a:
+#
+# - `mouse`:
+#
+#   - Middle
+#   - Left
+#   - Right
+#   - Numeric identifier such as `5`
+#
+# - `action` (see key bindings for actions not exclusive to mouse mode)
+#
+# - Mouse exclusive actions:
+#
+#   - ExpandSelection
+#       Expand the selection to the current mouse cursor location.
+#
+# And optionally:
+#
+# - `mods` (see key bindings)
+#mouse_bindings:
+#  - { mouse: Right,                 action: ExpandSelection }
+#  - { mouse: Right,  mods: Control, action: ExpandSelection }
+#  - { mouse: Middle, mode: ~Vi,     action: PasteSelection  }
 
 # Key bindings
 #
@@ -220,10 +255,10 @@ key_bindings:
 
   # Vi Mode
   - { key: Space,  mods: Shift|Control, mode: ~Search,    action: ToggleViMode            }
-  #- { key: Space,  mods: Shift|Control, mode: Vi|~Search, action: ScrollToBottom          }
-  #- { key: Escape,                      mode: Vi|~Search, action: ClearSelection          }
-  #- { key: I,                           mode: Vi|~Search, action: ToggleViMode            }
-  #- { key: I,                           mode: Vi|~Search, action: ScrollToBottom          }
+  - { key: Space,  mods: Shift|Control, mode: Vi|~Search, action: ScrollToBottom          }
+  - { key: Escape,                      mode: Vi|~Search, action: ClearSelection          }
+  - { key: I,                           mode: Vi|~Search, action: ToggleViMode            }
+  - { key: I,                           mode: Vi|~Search, action: ScrollToBottom          }
   #- { key: C,      mods: Control,       mode: Vi|~Search, action: ToggleViMode            }
   #- { key: Y,      mods: Control,       mode: Vi|~Search, action: ScrollLineUp            }
   #- { key: E,      mods: Control,       mode: Vi|~Search, action: ScrollLineDown          }

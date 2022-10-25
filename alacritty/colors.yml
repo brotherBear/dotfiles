@@ -146,5 +146,3 @@ colors:
   # the default background. When set to `true` all cells will be transparent
   # regardless of their background color.
   #transparent_background_colors: false
-
-
