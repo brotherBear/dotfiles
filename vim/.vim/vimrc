@@ -66,6 +66,7 @@ syntax on
     " Plug 'christoomey/vim-tmux-navigator'
     Plug 'deoplete-plugins/deoplete-jedi'
     Plug 'davidhalter/jedi-vim'
+    Plug 'gauteh/vim-norway'
     Plug 'guns/vim-clojure-static'
     Plug 'guns/vim-clojure-highlight'
     Plug 'itchyny/lightline.vim'
