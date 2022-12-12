@@ -1,0 +1,6 @@
+isort
+black
+jedi
+neovim
+flake8
+tomli
