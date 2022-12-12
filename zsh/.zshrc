@@ -24,11 +24,14 @@ export DOTNET_ROOT="/opt/homebrew/opt/dotnet/libexec"
 # Path to your oh-my-zsh installation.
 export ZSH="/Users/bjorn/.oh-my-zsh"
 
+# Path to tmux config (used by tmux plugin for oh-my-zsh)
+export ZSH_TMUX_CONFIG=$HOME/.config/tmux/tmux.conf
+
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="random"
+ZSH_THEME="agnoster"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -36,8 +39,9 @@ ZSH_THEME="random"
 # If set to an empty array, this variable will have no effect.
 ZSH_THEME_RANDOM_CANDIDATES=(
   "afowler"
-  "cloud"
+  # "cloud"
   "mortalscumbag"
+  "agnoster"
   )
 
 # Uncomment the following line to use case-sensitive completion.
@@ -154,6 +158,10 @@ export PATH="$PATH:$HOME/bin"
 
 [ -f /opt/homebrew/etc/profile.d/autojump.sh ] && . /opt/homebrew/etc/profile.d/autojump.sh
 
+# start atuin for command history
+eval "$(atuin init zsh)"
+
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 fortune
 
+study.sh
