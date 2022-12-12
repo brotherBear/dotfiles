@@ -336,7 +336,8 @@ key_bindings:
   # (macOS only)
   - { key: Comma,          mods: Command, command:
         {program: "sh", args: ["-c", "open ~/.config/alacritty/alacritty.yml"] }}
-  - { key: 10,             mods: Alt, mode: ~Vi|~Search,     chars: "\u007C"               } # the 'pipe' or vertical line
+  - { key: 10,             mods: Alt,     chars: "\u007C"               } # the 'pipe' or vertical line
+  - { key: 26,             mods: Alt,                        chars: "\u007C"               }
   - { key: 26,             mods: Alt|Shift,                  chars: "\\"                   }
   - { key: 25,             mods: Alt,                        chars: "]"                    }
   - { key: 25,             mods: Alt|Shift,                  chars: "}"                    }
