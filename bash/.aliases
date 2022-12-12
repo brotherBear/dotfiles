@@ -2,11 +2,19 @@
 #
 alias cdpycpe="cd ~/Dev/altibox/pycpe"
 alias cdfile-central="cd ~/Dev/altibox/file_api"
-alias cdclient="cd ~/Dev/altibox/cpe-release-client"
+alias cdclient="cd ~/Dev/altibox/file-central-client"
 alias cdaltibox="cd ~/Dev/altibox"
+alias cdrel="cd ~/Documents/Altibox/Release\ Manager"
 
 # Git related aliases
 become() { git fetch --all && git reset --hard origin/$1 ; }
+
+# Replacement commands (for testing)
+alias cat=bat
+alias ls=exa
+alias la="exa --all -s Name"
+alias ll="exa --long -s Name"
+alias lla="exa --long --all -s name"
 
 
 # Other useful stuff
@@ -34,21 +42,35 @@ alias \
 # Start the pydoc server (and open a browser)
 alias pdoc="python -m pydoc -b"
 
+# Create a local virtual environment
+alias cven="python -m venv .venv"
+
 # Apply the local virtual environment
-alias ven="source ./venv/bin/activate"
+alias ven="source ./.venv/bin/activate"
 
 # forever use python3 instead of python2
 alias python=python3
 alias pip=pip3
 
 # Servers
-alias cjumpo="ssh bjornt@oslcpejump1.lysetele.net"
-alias cjumps="ssh bjornt@svgcpejump1.lysetele.net"
-alias cbulko="ssh bjornt@oslcpebulkwrk1.lysetele.net"
 alias bulko="ssh bjornt@oslbulkwrk1.lysetele.net"
+alias cbulko="ssh bjornt@oslcpebulkwrk1.lysetele.net"
 alias cbulks="ssh bjornt@svgcpebulkwrk1.lysetele.net"
 alias cdbo="ssh bjornt@oslcpedb1.lysetele.net"
 alias cdbs="ssh bjornt@svgcpedb2.lysetele.net"
+alias cdbsa="ssh bjornt@svgcpedb1.at3.lysetele.net"
+alias cjumpo="ssh bjornt@oslcpejump1.lysetele.net"
+alias cjumps="ssh bjornt@svgcpejump1.lysetele.net"
 alias cstor="ssh bjornt@svgcpestor1.lysetele.net"
+alias cstora="ssh bjornt@svgcpestor1.at3.lysetele.net"
 alias cfix1="ssh bjornt@cpefix1.lysetele.net"
 alias cmast="ssh bjornt@svgcpemstr1.lysetele.net"
+alias clog1="ssh bjornt@cpelog1.lysetele.net"
+alias clog2="ssh bjornt@cpelog2.lysetele.net"
+alias clog3="ssh bjornt@cpelog3.lysetele.net"
+alias clog4="ssh bjornt@cpelog4.lysetele.net"
+alias conweb="ssh bjornt@svgconcourseweb1.lysetele.net"
+alias cci2o="ssh bjornt@oslcpeci2.lysetele.net"
+alias trans="ssh bjornt@transit.services.altibox.net"
+alias transa="ssh bjornt@transit-at3.services.altibox.net"
+
