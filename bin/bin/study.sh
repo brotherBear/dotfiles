@@ -4,7 +4,7 @@
 echo List of programs to study:
 echo "atuin     (command history)"
 echo "bat       (cat replacement)"
-echo "tldr      (simle man-page)"
+echo "tldr      (simple man-page)"
 echo "difft     (difftastic)"
 echo "dog       (dns lookup)"
 echo "fd        (find replacement)"
