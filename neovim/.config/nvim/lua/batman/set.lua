@@ -40,6 +40,7 @@ vim.opt.termguicolors = true
 -- show 8 lines below cursor
 vim.opt.scrolloff = 8
 
+-- Make space for diagnostic icons in first column
 vim.opt.signcolumn = "yes"
 vim.opt.isfname:append("@-@")
 
