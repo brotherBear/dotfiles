@@ -16,6 +16,11 @@ vim.opt.expandtab = true
 vim.opt.smartindent = true
 vim.opt.autoindent = true
 
+vim.opt.autowrite = true
+vim.opt.autoread = true
+vim.opt.showcmd = true
+vim.opt.laststatus = 2
+
 -- long lines should be fixed...
 vim.opt.wrap = false
 
@@ -39,6 +44,7 @@ vim.opt.termguicolors = true
 
 -- show 8 lines below cursor
 vim.opt.scrolloff = 8
+vim.opt.cursorline = true
 
 -- Make space for diagnostic icons in first column
 vim.opt.signcolumn = "yes"
