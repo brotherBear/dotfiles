@@ -44,8 +44,8 @@ cursor:
 
 font:
   normal:
-    family: Source Code Pro for Powerline
-  size: 17
+    family: NotoMono Nerd Font
+  size: 16
 
   # Better font rendering for mac
   # set the AppleFontSmoothing user default

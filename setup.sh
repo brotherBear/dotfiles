@@ -20,6 +20,7 @@ useronly=(
 	git
 	zsh
 	yamllint
+	alacritty
 )
 
 # Stow the directory at $2 in the location $1
