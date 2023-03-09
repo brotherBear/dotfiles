@@ -26,6 +26,9 @@ return require('packer').startup( function(use)
     -- Keyboard mapping for norwegian users
 	use 'gauteh/vim-norway'
 
+    use 'mfussenegger/nvim-dap'
+    use 'mfussenegger/nvim-dap-python'
+
 	use {
 		'VonHeikemen/lsp-zero.nvim',
 		requires = {
