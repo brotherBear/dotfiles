@@ -1,6 +1,4 @@
 vim.g.mapleader = " "
-vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
-
 
 -- Simplify movement between screen splits
 vim.keymap.set("n", "<C-J>", "<C-W><C-J>")

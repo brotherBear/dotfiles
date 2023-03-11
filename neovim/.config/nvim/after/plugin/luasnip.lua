@@ -45,4 +45,4 @@ vim.keymap.set("i", "<c-l>", function()
 
 
 -- easy reload snippets from inside neovim
-vim.keymap.set("n", "<leader><leader>s", "<CMD>source ~/.config/nvim/after/plugin/luasnip.lua<CR>")
+vim.keymap.set("n", "<leader>rs", "<CMD>source ~/.config/nvim/after/plugin/luasnip.lua<CR>")
