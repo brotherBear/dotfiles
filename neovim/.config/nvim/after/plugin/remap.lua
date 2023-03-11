@@ -2,7 +2,7 @@ vim.g.mapleader = " "
 vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
 
 
--- Simplify movement between screen splits 
+-- Simplify movement between screen splits
 vim.keymap.set("n", "<C-J>", "<C-W><C-J>")
 vim.keymap.set("n", "<C-K>", "<C-W><C-K>")
 vim.keymap.set("n", "<C-L>", "<C-W><C-L>")
@@ -31,7 +31,7 @@ vim.keymap.set("n", "<leader>y", "\"+y")
 vim.keymap.set("v", "<leader>y", "\"+y")
 vim.keymap.set("n", "<leader>Y", "\"+Y")
 
--- delete to void register in both normal and visual mode
+-- delete-to-void register in both normal and visual mode
 vim.keymap.set("n", "<leader>d", "\"_d")
 vim.keymap.set("v", "<leader>d", "\"_d")
 
@@ -61,6 +61,5 @@ vim.keymap.set("n", "sh", ":!sh %<CR>")
 vim.keymap.set("n", "<leader>t", ":terminal<CR>GA")
 
 -- nnoremap cpp :!c++ % -o %:r && ./%:r <CR>           " C++ compile and run macro
--- nnoremap sh :!chmod +x % && source %<CR>            " Bash sourcing macro 
--- nnoremap c :!clang % -o %:r && ./%:r <CR>           " C compile and run macro 
-
+-- nnoremap sh :!chmod +x % && source %<CR>            " Bash sourcing macro
+-- nnoremap c :!clang % -o %:r && ./%:r <CR>           " C compile and run macro
