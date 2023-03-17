@@ -50,13 +50,16 @@ vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><
 
 -- make a buffer executable
 -- really nice for bash-scripts, etc.
-vim.keymap.set("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true })
+-- vim.keymap.set("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true })
 
 -- Run scripts
+vim.keymap.set("n", "ru", ":!cargo run<CR>")
+vim.keymap.set("n", "rd", ":!rustup doc<CR>")
+vim.keymap.set("n", "rt", ":!cargo test<CR>")
 vim.keymap.set("n", "py", ":!python3 %<CR>")
 vim.keymap.set("n", "dj", ":!python3 manage.py runserver<CR>")
 vim.keymap.set("n", "sh", ":!sh %<CR>")
-vim.keymap.set("n", "<leader>t", ":terminal<CR>GA")
+-- vim.keymap.set("n", "<leader>t", ":terminal<CR>GA")
 
 -- nnoremap cpp :!c++ % -o %:r && ./%:r <CR>           " C++ compile and run macro
 -- nnoremap sh :!chmod +x % && source %<CR>            " Bash sourcing macro
