@@ -20,7 +20,7 @@ ls.config.set_config {
 
 -- LuaSnip keymaps (from TJDevries video on luasnip)
 -- expand snippet or jump to next stop in snippet
-vim.keymap.set({ "i", "s" }, "<leader>k", function()
+vim.keymap.set({ "i", "s" }, "<c-k>", function()
         if ls.expand_or_jumpable() then
             ls.expand_or_jump()
         end

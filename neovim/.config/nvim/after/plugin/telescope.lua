@@ -18,11 +18,11 @@ vim.keymap.set('n', '<leader>sg', builtin.live_grep, { desc = '[S]earch by [G]re
 vim.keymap.set('n', '<leader>sd', builtin.diagnostics, { desc = '[S]earch [D]iagnostics' })
 
 vim.keymap.set('n', '<leader>ff', builtin.find_files, { desc = '[F]ind [F]iles' })
-vim.keymap.set('n', '<leader>fb', function()
+vim.keymap.set('n', '<leader>sb', function()
 	builtin.live_grep( {
 		prompt = 'Find string in open buffers ...',
 		grep_open_files = true,
-		desc = '[F]ind in [B]uffers',
+		desc = '[S]earch in [B]uffers',
 	})
 end);
 vim.keymap.set('n', '<leader>fg', builtin.git_files, { desc = '[F]ind [G]it files' })
