@@ -84,9 +84,6 @@ require('lazy').setup({
       -- Additional lua configuration, makes nvim stuff amazing!
       'folke/neodev.nvim',
 
-      -- Python LSP config
-      'python-lsp/python-lsp-server',
-      'python-lsp/python-lsp-black',
     },
   },
 
@@ -170,6 +167,7 @@ require('lazy').setup({
   --
   --    For additional information see: https://github.com/folke/lazy.nvim#-structuring-your-plugins
   { import = 'custom.plugins' },
+  { import = 'plugins' },
 }, {})
 
 -- [[ Setting options ]]
