@@ -1,31 +1,38 @@
 local builtin = require('telescope.builtin')
 
--- See `:help telescope.builtin`
-vim.keymap.set('n', '<leader>?', builtin.oldfiles, { desc = '[?] Find recently opened files' })
-vim.keymap.set('n', '<leader>!', builtin.buffers, { desc = '[ ] Find existing buffers' })
+local nmap = function (keys, func, desc)
+	if desc then
+		desc = 'Telescope LSP: ' .. desc
+	end
 
-vim.keymap.set('n', '<leader>/', function()
+	vim.keymap.set('n', keys, func, { desc = desc })
+end
+
+-- See `:help telescope.builtin`
+nmap('<leader>?', builtin.oldfiles, '[?] Find recently opened files' )
+nmap('<leader>!', builtin.buffers, '[!] Find existing buffers' )
+
+nmap('<leader>/', function()
   -- You can pass additional configuration to telescope to change theme, layout, etc.
-  require('telescope.builtin').current_buffer_fuzzy_find(require('telescope.themes').get_dropdown {
+  builtin.current_buffer_fuzzy_find(require('telescope.themes').get_dropdown {
     winblend = 10,
     previewer = false,
   })
-end, { desc = '[/] Fuzzily search in current buffer' })
+end, '[/] Fuzzily search in current buffer' )
 
-vim.keymap.set('n', '<leader>sh', builtin.help_tags, { desc = '[S]earch [H]elp' })
-vim.keymap.set('n', '<leader>sw', builtin.grep_string, { desc = '[S]earch current [W]ord' })
-vim.keymap.set('n', '<leader>sg', builtin.live_grep, { desc = '[S]earch by [G]rep' })
-vim.keymap.set('n', '<leader>sd', builtin.diagnostics, { desc = '[S]earch [D]iagnostics' })
+nmap('<leader>sh', builtin.help_tags, '[S]earch [H]elp' )
+nmap('<leader>sw', builtin.grep_string, '[S]earch current [W]ord' )
+nmap('<leader>sg', builtin.live_grep, '[S]earch by [G]rep' )
+nmap('<leader>sd', builtin.diagnostics, '[S]earch [D]iagnostics' )
 
-vim.keymap.set('n', '<leader>ff', builtin.find_files, { desc = '[F]ind [F]iles' })
-vim.keymap.set('n', '<leader>sb', function()
+nmap('<leader>ff', builtin.find_files, '[F]ind [F]iles' )
+nmap('<leader>sb', function()
 	builtin.live_grep( {
 		prompt = 'Find string in open buffers ...',
 		grep_open_files = true,
-		desc = '[S]earch in [B]uffers',
 	})
-end);
-vim.keymap.set('n', '<leader>fg', builtin.git_files, { desc = '[F]ind [G]it files' })
-vim.keymap.set('n', '<leader>fs', function()
+end, '[S]earch in [B]uffers' )
+nmap('<leader>fg', builtin.git_files, '[F]ind [G]it files' )
+nmap('<leader>fs', function()
 	builtin.grep_string({ search = vim.fn.input("Grep > ") });
-end, { desc = '[F]ind [S]tring in file'})
+end, '[F]ind [S]tring in file' )
