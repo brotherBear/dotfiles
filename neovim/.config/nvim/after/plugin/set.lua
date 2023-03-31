@@ -47,7 +47,7 @@ vim.o.timeout = true
 vim.o.timeoutlen = 300
 
 -- Set highlight on search
-vim.o.hlsearch = true
+vim.o.hlsearch = false
 vim.opt.incsearch = true
 
 vim.opt.termguicolors = true
@@ -63,9 +63,6 @@ vim.opt.isfname:append("@-@")
 vim.opt.updatetime = 50
 
 vim.opt.colorcolumn = "120"
-
--- mapleader - duplicated in remap.lua
-vim.g.mapleader = " "
 
 vim.g.python3_host_prog = "/opt/homebrew/bin/python3"
 

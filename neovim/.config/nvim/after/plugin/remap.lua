@@ -1,5 +1,3 @@
-vim.g.mapleader = " "
-
 -- Simplify movement between screen splits
 vim.keymap.set("n", "<C-J>", "<C-W><C-J>")
 vim.keymap.set("n", "<C-K>", "<C-W><C-K>")
@@ -40,13 +38,13 @@ vim.keymap.set("n", "<C-f>", "<cmd>silent !tmux neww tmux-sessionizer<CR>")
 vim.keymap.set("n", "<leader>note", ":-1read $HOME/.vim/snippets/.skeleton.notes.md<CR>")
 
 -- formatting
-vim.keymap.set("n", "<leader>f", function() vim.lsp.buf.format() end)
+-- vim.keymap.set("n", "<leader>f", function() vim.lsp.buf.format() end)
 
 -- Vimdiff
 vim.keymap.set("n", "<C-9>", "<C-]>")
 
 -- shorthand search
-vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
+-- vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
 
 -- make a buffer executable
 -- really nice for bash-scripts, etc.
