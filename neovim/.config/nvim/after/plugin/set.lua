@@ -1,5 +1,5 @@
 -- line numbering options
-vim.opt.nu = true
+vim.wo.number = true
 vim.opt.relativenumber = true
 
 -- tabs etc.
@@ -16,13 +16,17 @@ vim.opt.expandtab = true
 vim.opt.smartindent = true
 vim.opt.autoindent = true
 
+-- Case insensitive searching UNLESS /C or capital in search
+vim.o.ignorecase = true
+vim.o.smartcase = true
+
 vim.opt.autowrite = true
 vim.opt.autoread = true
 vim.opt.showcmd = true
 vim.opt.laststatus = 2
 
 -- long lines should be fixed...
-vim.opt.wrap = false
+vim.opt.wrap = true
 
 -- Enable folding at indent
 vim.opt.foldmethod = "indent"
@@ -35,9 +39,15 @@ vim.opt.showmatch = true
 vim.opt.swapfile = false
 vim.opt.backup = false
 vim.opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
-vim.opt.undofile = true
+vim.o.undofile = true
 
-vim.opt.hlsearch = false
+-- Decrease update time
+vim.o.updatetime = 250
+vim.o.timeout = true
+vim.o.timeoutlen = 300
+
+-- Set highlight on search
+vim.o.hlsearch = true
 vim.opt.incsearch = true
 
 vim.opt.termguicolors = true
@@ -61,5 +71,6 @@ vim.g.python3_host_prog = "/opt/homebrew/bin/python3"
 
 vim.g.loaded_perl_provider = 0
 vim.g.loaded_ruby_provider = 0
+
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
