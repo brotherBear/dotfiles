@@ -46,6 +46,10 @@ vim.keymap.set("n", "<C-9>", "<C-]>")
 -- shorthand search
 -- vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
 
+-- Process a markdown file to PDF presentation
+vim.keymap.set("n", "<leader>pp", "<cmd>!pandoc -t beamer -f markdown -o %.pdf % && open %.pdf<cr>")
+vim.keymap.set("n", "<leader>pd", "<cmd>!pandoc -f markdown -o %.pdf % && open %.pdf<cr>")
+
 -- make a buffer executable
 -- really nice for bash-scripts, etc.
 -- vim.keymap.set("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true })
