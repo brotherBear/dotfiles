@@ -1,6 +1,3 @@
-# If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
-
 # Configuration for Altibox
 #
 
@@ -31,7 +28,7 @@ export ZSH_TMUX_CONFIG=$HOME/.config/tmux/tmux.conf
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="agnoster"
+ZSH_THEME="fino-time"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -39,9 +36,13 @@ ZSH_THEME="agnoster"
 # If set to an empty array, this variable will have no effect.
 ZSH_THEME_RANDOM_CANDIDATES=(
   "afowler"
-  # "cloud"
+  "cloud"
   "mortalscumbag"
   "agnoster"
+  "robbyrussell"
+  "rkj-repos"
+  "tonotdo"
+  "dieter"
   )
 
 # Uncomment the following line to use case-sensitive completion.
@@ -100,7 +101,6 @@ plugins=(
   macos
   poetry
   rust
-  tmux
   z
   zsh-autosuggestions
 )
@@ -109,7 +109,6 @@ source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
-# export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
 export LANG=en_US.UTF-8
@@ -124,16 +123,17 @@ fi
 
 
 # Exports recommended by Brew
-export PKG_CONFIG_PATH="/usr/local/opt/ruby/lib/pkgconfig"
+export PKG_CONFIG_PATH="/opt/homebrew/opt/ruby/lib/pkgconfig"
 
 export GROOVY_HOME=/opt/homebrew/opt/groovy/libexec
 
 # For compilers to find sqlite you may need to set:
-export LDFLAGS="-L/usr/local/opt/sqlite/lib"
-export CPPFLAGS="-I/usr/local/opt/sqlite/include"
+export LDFLAGS="-L/opt/homebrew/opt/sqlite/lib"
+export CPPFLAGS="-I/opt/homebrew/opt/sqlite/include"
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
+export ARCHFLAGS="-arch arm64"
 
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
@@ -147,9 +147,6 @@ alias zshconfig="vim ~/.zshrc"
 source ~/.aliases
 
 ## Add to PATH
-# export PATH="/usr/local/opt/sqlite/bin:$PATH"
-# export PATH="/usr/local/opt/qt/bin:$PATH"
-# export PATH="/usr/local/sbin:$PATH"
 export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"
 export PATH="/opt/homebrew/opt/ruby/bin:$PATH"
 export PATH="/opt/homebrew/sbin:$PATH"
@@ -164,4 +161,5 @@ eval "$(atuin init zsh)"
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 fortune
 
+echo
 study.sh
