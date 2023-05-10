@@ -6,7 +6,7 @@
 [gui]
 	encoding = utf-8
 [core]
-	editor = vim
+	editor = nvim
 	excludesfile = /Users/bjorn/.gitignore_global
 	autocrlf = input
 [pull]
