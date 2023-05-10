@@ -146,6 +146,7 @@ require('lazy').setup({
   --
   --    For additional information see: https://github.com/folke/lazy.nvim#-structuring-your-plugins
   { import = 'custom.plugins' },
+  { import = 'custom.config.snip.snippets' },
   { import = 'plugins' },
 }, {})
 
