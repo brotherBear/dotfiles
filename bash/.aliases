@@ -1,11 +1,3 @@
-# shortcuts
-#
-alias cdpycpe="cd ~/Dev/altibox/pycpe"
-alias cdfile-central="cd ~/Dev/altibox/file_api"
-alias cdclient="cd ~/Dev/altibox/file-central-client"
-alias cdaltibox="cd ~/Dev/altibox"
-alias cdrel="cd ~/Documents/Altibox/Release\ Manager"
-
 # Git related aliases
 become() { git fetch --all && git reset --hard origin/$1 ; }
 
@@ -73,4 +65,7 @@ alias conweb="ssh bjornt@svgconcourseweb1.lysetele.net"
 alias cci2o="ssh bjornt@oslcpeci2.lysetele.net"
 alias trans="ssh bjornt@transit.services.altibox.net"
 alias transa="ssh bjornt@transit-at3.services.altibox.net"
+alias ulv="ssh bjornt@ulvallvisapp1.lysetele.net"
 
+# BHs devserver
+alias flopshub="ssh bjornt@176.126.70.184"
