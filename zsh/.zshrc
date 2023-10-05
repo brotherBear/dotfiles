@@ -163,3 +163,4 @@ fortune
 
 echo
 study.sh
+export GROOVY_HOME=/opt/homebrew/opt/groovy/libexec

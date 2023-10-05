@@ -97,7 +97,7 @@ syntax on
     Plug 'vim-scripts/indentpython.vim'
     Plug 'vim-syntastic/syntastic'
     Plug 'w0rp/ale'
-    Plug 'ycm-core/YouCompleteMe'
+    " Plug 'ycm-core/YouCompleteMe'
     Plug 'Yggdroot/indentLine'
   call plug#end()
 " }}}
