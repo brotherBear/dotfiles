@@ -69,5 +69,10 @@ alias ulv="ssh bjornt@ulvallvisapp1.lysetele.net"
 alias cb3="ssh bjornt@svgcpebulkwrk3.lysetele.net"
 alias cj3="ssh bjornt@svgcpejump3.lysetele.net"
 
+# Tunnels
+alias tcpedb="ssh -L 3306:oslcpedb1.lysetele.net:3306 -f bjornt@oslcpedb1.lysetele.net -N"
+alias tldap="ssh -L 1636:gmipaldap.lysetele.net:636 -f bjornt@svgcpestor1.at3.lysetele.net -N"
+alias tplant="ssh -fN oslbulkwrk1.lysetele.net"
+
 # BHs devserver
 alias flopshub="ssh bjornt@176.126.70.184"
