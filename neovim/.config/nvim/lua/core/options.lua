@@ -1,3 +1,6 @@
+-- [[ Setting options ]]
+-- See ':help vim.o'
+
 -- line numbering options
 vim.wo.number = true
 vim.opt.relativenumber = true
@@ -55,6 +58,20 @@ vim.opt.termguicolors = true
 -- show 8 lines below cursor
 vim.opt.scrolloff = 8
 vim.opt.cursorline = true
+
+-- enable mouse mode
+vim.o.mouse = 'a'
+
+-- Sync clipboard between OS and Neovim.
+--  Remove this option if you want your OS clipboard to remain independent.
+--  See `:help 'clipboard'`
+vim.o.clipboard = 'unnamedplus'
+
+-- Enable break indent
+vim.o.breakindent = true
+
+-- Set completeopt to have a better completion experience
+vim.o.completeopt = 'menuone,noselect'
 
 -- Make space for diagnostic icons in first column
 vim.opt.signcolumn = "yes"
