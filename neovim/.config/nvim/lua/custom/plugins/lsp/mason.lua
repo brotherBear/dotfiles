@@ -26,6 +26,7 @@ return {
                 "pyright",
                 "html",
                 "lua_ls",
+                "rust_analyzer",
             },
             -- auto-install configured servers (with lspconfig)
             -- not the same as ensure_installed

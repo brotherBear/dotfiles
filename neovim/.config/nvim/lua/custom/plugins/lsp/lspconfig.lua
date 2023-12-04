@@ -26,9 +26,7 @@ return {
             end
 
             nmap("gR", "<CMD>Telescope lsp_reference<CR>", "Show definition, references")
-            nmap("gD", vim.lsp.buf.declaration, "Go to declaration")
 
-            -- TODO Add more when config is sound
             nmap('<leader>rn', vim.lsp.buf.rename, '[R]e[n]ame')
             nmap('<leader>ca', vim.lsp.buf.code_action, '[C]ode [A]ction')
 
@@ -55,6 +53,7 @@ return {
             vim.api.nvim_buf_create_user_command(bufnr, 'Format', function(_)
                 vim.lsp.buf.format()
             end, { desc = 'Format current buffer with LSP' })
+            nmap('<leader>rs', "<CMD>LspRestart<CR>", "Restart LSP server")
         end
 
         -- enable autocompletion (assin to every lsp server config)
