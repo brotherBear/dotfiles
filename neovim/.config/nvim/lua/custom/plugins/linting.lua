@@ -6,20 +6,15 @@ return {
         local lint = require("lint")
         lint.linters_by_ft = {
             python = { "pylint" },
-            lua = { "luacheck" },
+            json = { "jsonlint" },
             sh = { "shellcheck" },
             vim = { "vint" },
-            markdown = { "markdownlint" },
             yaml = { "yamllint" },
-            json = { "jsonlint" },
             dockerfile = { "hadolint" },
-            html = { "htmlhint" },
-            css = { "stylelint" },
-            javascript = { "eslint" },
-            typescript = { "eslint" },
-            typescriptreact = { "eslint" },
-            javascriptreact = { "eslint" },
-            vue = { "eslint" },
+            lua = { "luacheck" },
+            -- html = { "htmlhint" },
+            -- markdown = { "markdownlint" },
+            --     css = { "stylelint" },
         }
 
         local lint_augroup = vim.api.nvim_create_augroup("lint", { clear = true })
