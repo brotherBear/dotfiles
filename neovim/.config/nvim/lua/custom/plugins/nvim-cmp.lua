@@ -67,10 +67,10 @@ return {
             sources = {
                 { name = 'nvim_lsp' },
                 { name = 'luasnip' },
-                { name = 'buffer' },
                 { name = 'copilot', group_index = 2 },
                 { name = 'vsnip' },
                 { name = 'path' },
+                { name = 'buffer' },
                 { name = 'emoji' },
             },
 
