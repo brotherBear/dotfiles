@@ -1,13 +1,18 @@
 -- setup must be called before loading the colorscheme
 -- Default options:
 return {
-    "ellisonleao/gruvbox.nvim",
-    priority = 1000,
-    -- Configure LazyVim to load gruvbox
-    {
-        "LazyVim/LazyVim",
-        opts = {
-            colorscheme = "gruvbox",
-        }
-    },
+   "tiagovla/tokyodark.nvim",
+   -- "ellisonleao/gruvbox.nvim",
+   -- "vigoux/oak",
+   -- "catppuccin/nvim",
+   -- "sainnhe/sonokai",
+   priority = 1000,
+   -- Configure LazyVim to load the colorscheme
+   {
+      "LazyVim/LazyVim",
+      opts = {
+         colorscheme = "tokyodark",
+         background = "dark",
+      },
+   },
 }

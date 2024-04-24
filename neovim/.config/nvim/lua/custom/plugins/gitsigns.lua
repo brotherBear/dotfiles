@@ -5,5 +5,6 @@ return {
    opts = {
       -- See `:help gitsigns.txt`
       current_line_blame = true,
+      word_diff = true,
    },
 }

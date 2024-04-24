@@ -19,7 +19,7 @@ require("lazy").setup({
    { import = "custom.plugins.lsp" },
 }, {
    install = {
-      colorscheme = { "gruvbox" },
+      -- colorscheme = { "tokyonight" },
    },
    checker = {
       enabled = true,

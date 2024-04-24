@@ -3,11 +3,6 @@ become() { git fetch --all && git reset --hard origin/$1 ; }
 
 # Replacement commands (for testing)
 alias cat=bat
-alias ls=exa
-alias la="exa --all -s Name"
-alias ll="exa --long -s Name"
-alias lla="exa --long --all -s name"
-
 
 # Other useful stuff
 # list readable files in current directory

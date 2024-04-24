@@ -1,33 +1,27 @@
 -- This file is a handy place for adding plugins that require no configuration, or where I
 -- want to add configuration inline.
 return {
-    --  Colorscheme Theme
-    "ellisonleao/gruvbox.nvim",
+   --  keyboard config for norwegian mac users
+   -- 'gauteh/vim-norway',
 
-    --  keyboard config for norwegian mac users
-    -- 'gauteh/vim-norway',
+   {
+      -- Add indentation guides even on blank lines
+      "lukas-reineke/indent-blankline.nvim",
+      -- See `:help indent_blankline.txt`
+      main = "ibl",
+      opts = {},
+   },
 
-    -- 'theprimeagen/harpoon',
+   -- Git related plugins
+   -- 'tpope/vim-fugitive',
+   -- 'tpope/vim-rhubarb',
 
-    { 
-        -- Add indentation guides even on blank lines
-        'lukas-reineke/indent-blankline.nvim',
-        -- See `:help indent_blankline.txt`
-        main = "ibl",
-        opts = { },
-    },
+   -- Detect tabstop and shiftwidth automatically
+   "tpope/vim-sleuth",
 
-  -- Git related plugins
-  'tpope/vim-fugitive',
-  'tpope/vim-rhubarb',
+   -- lua functions used by many plugins
+   "nvim-lua/plenary.nvim",
 
-  -- Detect tabstop and shiftwidth automatically
-  'tpope/vim-sleuth',
-
-  -- lua functions used by many plugins
-  "nvim-lua/plenary.nvim",
-
-  -- tmux and split window navigation
-  "christoomey/vim-tmux-navigator",
-
+   -- tmux and split window navigation
+   "christoomey/vim-tmux-navigator",
 }
