@@ -28,7 +28,7 @@ export ZSH_TMUX_CONFIG=$HOME/.config/tmux/tmux.conf
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="fino-time"
+ZSH_THEME="random"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -39,6 +39,7 @@ ZSH_THEME_RANDOM_CANDIDATES=(
   "cloud"
   "mortalscumbag"
   "agnoster"
+  "fino-time"
   "robbyrussell"
   "rkj-repos"
   "tonotdo"
@@ -101,7 +102,7 @@ plugins=(
   macos
   poetry
   rust
-  z
+  zoxide
   zsh-autosuggestions
 )
 
@@ -142,7 +143,7 @@ export ARCHFLAGS="-arch arm64"
 #
 alias ohmyzsh="vim ~/.oh-my-zsh"
 alias vim='nvim'
-alias zshconfig="vim ~/.zshrc"
+alias zconf="vim ~/.zshrc"
 
 source ~/.aliases
 
@@ -153,10 +154,12 @@ export PATH="/opt/homebrew/sbin:$PATH"
 export PATH="/opt/homebrew/bin:$PATH"
 export PATH="$PATH:$HOME/bin"
 
-[ -f /opt/homebrew/etc/profile.d/autojump.sh ] && . /opt/homebrew/etc/profile.d/autojump.sh
+# [ -f /opt/homebrew/etc/profile.d/autojump.sh ] && . /opt/homebrew/etc/profile.d/autojump.sh
 
 # start atuin for command history
 eval "$(atuin init zsh)"
+
+eval "$(zoxide init zsh)"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 fortune
