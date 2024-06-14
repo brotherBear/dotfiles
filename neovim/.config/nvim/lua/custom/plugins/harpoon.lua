@@ -10,7 +10,7 @@ return {
       local keymap = vim.keymap
 
       keymap.set("n", "<leader>hm", function()
-         harpoon:list():append()
+         harpoon:list():add()
       end, { desc = "Mark file with harpoon" })
       keymap.set("n", "<leader>hn", function()
          harpoon:list():next()
