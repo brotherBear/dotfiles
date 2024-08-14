@@ -35,7 +35,6 @@ return {
           "dockerfile",
           "gitignore",
           "json",
-          "help",
           "html",
           "lua",
           "markdown",

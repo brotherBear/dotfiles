@@ -11,7 +11,7 @@ And then explore `:help lua-guide`
 --]]
 
 require("core")
-require("custom.lazy")
+require("config.lazy")
 
 
 -- [[ Highlight on yank ]]
