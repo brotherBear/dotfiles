@@ -32,3 +32,6 @@ require("lazy").setup({
         enabled = true
     },
 })
+
+require('neodev').setup()
+
