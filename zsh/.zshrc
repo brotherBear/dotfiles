@@ -1,23 +1,4 @@
-# Configuration for Altibox
-#
-
-[ -f ~/.altibox ] && source ~/.altibox
-
-# END configuration for Altibox
-
-# Load the flus-dns script
-#
-[ -f ~/bin/flush-dns.sh ] && source ~/bin/flush-dns.sh
-
-
 ######################
-# java configuration
-export JAVA_HOME='/opt/homebrew/opt/openjdk'
-
-######################
-# dotnet core configuration
-export DOTNET_ROOT="/opt/homebrew/opt/dotnet/libexec"
-
 # Path to your oh-my-zsh installation.
 export ZSH="/Users/bjorn/.oh-my-zsh"
 
@@ -109,6 +90,7 @@ plugins=(
 
 source $ZSH/oh-my-zsh.sh
 
+######################
 # User configuration
 
 
@@ -123,9 +105,36 @@ else
   # export EDITOR='mvim'
 fi
 
+# History configuration
+HISTSIZE=5000
+HISTFILE=~/.zsh_history
+SAVEHIST=5000
+HISTDUP=erase
+setopt appendhistory
+setopt share_history
+setopt hist_ignore_space
+setopt hist_ignore_dups
+setopt hist_save_no_dups
+setopt hist_ignore_dups
+
+# Configuration for Altibox
+#
+
+[ -f ~/.altibox ] && source ~/.altibox
+
+# END configuration for Altibox
 
 # Exports recommended by Brew
 export PKG_CONFIG_PATH="/opt/homebrew/opt/ruby/lib/pkgconfig"
+
+
+######################
+# java configuration
+export JAVA_HOME='/opt/homebrew/opt/openjdk'
+
+######################
+# dotnet core configuration
+export DOTNET_ROOT="/opt/homebrew/opt/dotnet/libexec"
 
 export GROOVY_HOME=/opt/homebrew/opt/groovy/libexec
 
@@ -136,6 +145,10 @@ export CPPFLAGS="-I/opt/homebrew/opt/sqlite/include"
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
 export ARCHFLAGS="-arch arm64"
+
+# Load the flus-dns script
+#
+[ -f ~/bin/flush-dns.sh ] && source ~/bin/flush-dns.sh
 
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
@@ -158,7 +171,7 @@ export PATH="$PATH:$HOME/bin"
 # [ -f /opt/homebrew/etc/profile.d/autojump.sh ] && . /opt/homebrew/etc/profile.d/autojump.sh
 
 # start atuin for command history
-eval "$(atuin init zsh)"
+# eval "$(atuin init zsh)"
 
 eval "$(zoxide init zsh)"
 
@@ -168,3 +181,4 @@ fortune
 echo
 study.sh
 export GROOVY_HOME=/opt/homebrew/opt/groovy/libexec
+export NVIM_APPNAME=lazyvim

@@ -2,7 +2,6 @@
 #
 
 echo List of programs to study:
-echo "atuin     (command history)"
 echo "bat       (cat replacement)"
 echo "tldr      (simple man-page)"
 echo "difft     (difftastic)"
