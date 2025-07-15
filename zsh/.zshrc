@@ -168,6 +168,8 @@ export PATH="/opt/homebrew/sbin:$PATH"
 export PATH="/opt/homebrew/bin:$PATH"
 export PATH="$PATH:$HOME/bin"
 
+export PATH="$PATH:$HOME/.docker/bin"
+
 # [ -f /opt/homebrew/etc/profile.d/autojump.sh ] && . /opt/homebrew/etc/profile.d/autojump.sh
 
 # start atuin for command history
@@ -180,5 +182,8 @@ fortune
 
 echo
 study.sh
-export GROOVY_HOME=/opt/homebrew/opt/groovy/libexec
+
 export NVIM_APPNAME=lazyvim
+
+# Load secrets
+[ -f ~/.secrets ] && source ~/.secrets
