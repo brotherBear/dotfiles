@@ -46,8 +46,6 @@ alias cbulks="ssh bjornt@svgcpebulkwrk1.lysetele.net"
 alias cdbo="ssh bjornt@oslcpedb1.lysetele.net"
 alias cdbs="ssh bjornt@svgcpedb2.lysetele.net"
 alias cdbsa="ssh bjornt@svgcpedb1.at3.lysetele.net"
-alias cjumpo="ssh bjornt@oslcpejump1.lysetele.net"
-alias cj1="ssh bjornt@svgcpejump1.lysetele.net"
 alias cstor="ssh bjornt@svgcpestor1.lysetele.net"
 alias cstora="ssh bjornt@svgcpestor1.at3.lysetele.net"
 alias cmast="ssh bjornt@svgcpemstr1.lysetele.net"
@@ -68,6 +66,7 @@ alias cj3="ssh bjornt@svgcpejump3.lysetele.net"
 # Tunnels
 alias tcpedb="ssh -L 3306:oslcpedb1.lysetele.net:3306 -f bjornt@oslcpedb1.lysetele.net -N"
 alias tldap="ssh -L 1636:gmipaldap.lysetele.net:636 -f bjornt@svgcpestor1.at3.lysetele.net -N"
+alias acsdb="ssh -L 3306:acs-db1.lysetele.net:3306 -u acs -h localhost -fN"
 alias tplant="ssh -fN oslbulkwrk1.lysetele.net"
 
 # BHs devserver
