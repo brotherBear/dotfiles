@@ -2,3 +2,6 @@ vim/.vim/bundle/
 .netrwhist
 *.old
 vim/.vim/undodir/
+tmux/.config/tmux/plugins
+bin/bin/fly
+bin/bin/eya
