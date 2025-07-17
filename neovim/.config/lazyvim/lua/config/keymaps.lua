@@ -15,8 +15,10 @@ vim.keymap.set("v", "ø", "<gv")
 vim.keymap.set("v", "æ", ">gv")
 
 -- Override the standard [ ] movement keys to ø and æ in normal mode
-vim.keymap.set("n", "ø", "[[")
-vim.keymap.set("n", "æ", "]]")
+vim.keymap.set("n", "ø", "[")
+vim.keymap.set("n", "æ", "]")
+vim.keymap.set("n", "Ø", "[[")
+vim.keymap.set("n", "Æ", "]]")
 
 -- Override the tabs movement keys ø and æ
 vim.keymap.set("n", "<leader><tab>æ", "<cmd>tabnext<cr>", { desc = "Next Tab" })
