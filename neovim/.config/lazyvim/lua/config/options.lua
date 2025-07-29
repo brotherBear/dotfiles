@@ -8,6 +8,3 @@ vim.g.lazyvim_python_format_args = { "--line-length", "88" }
 vim.g.lazyvim_python_format_on_save = true
 vim.g.lazyvim_python_diagnostics = "ruff"
 vim.g.lazyvim_python_ruff = "ruff"
-
--- vim.g.lazyvim.python_lint = "ruff"
--- vim.g.lazyvim.python_lint_args = { "--fix", "--line-length", "88" }
